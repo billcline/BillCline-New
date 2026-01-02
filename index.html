@@ -1,318 +1,363 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  BookOpen, 
-  Briefcase, 
-  Mic, 
-  Users, 
-  Mail, 
-  ChevronRight, 
-  Download, 
-  Linkedin, 
-  Twitter, 
-  Menu, 
-  X,
-  Award,
-  TrendingUp,
-  Globe
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Cline - Independent Consultant & Author</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-slate-900/50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 cursor-pointer" onclick="scrollToSection('home')">
+                    <h1 class="text-2xl font-bold tracking-tight text-white">
+                        BILL <span class="text-blue-600">CLINE</span>
+                    </h1>
+                </div>
 
-const App = () => {
-  const [activeSection, setActiveSection] = useState('home');
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('home')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Home</button>
+                    <button onclick="scrollToSection('about')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">About</button>
+                    <button onclick="scrollToSection('book')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">The Book</button>
+                    <button onclick="scrollToSection('services')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Services</button>
+                    <button onclick="scrollToSection('resume')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Resume</button>
+                    <button onclick="scrollToSection('contact')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Contact</button>
+                </div>
 
-  // Handle scroll effects for navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navigation = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'The Book', id: 'book' },
-    { name: 'Services', id: 'services' },
-    { name: 'Resume', id: 'resume' },
-    { name: 'Contact', id: 'contact' },
-  ];
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(id);
-      setIsMenuOpen(false);
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <h1 className={`text-2xl font-bold tracking-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-                BILL <span className="text-blue-600">CLINE</span>
-              </h1>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-button" onclick="toggleMenu()" class="p-2 rounded-md text-white">
+                        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            
-            {/* Desktop Nav */}
-            <div className="hidden md:flex space-x-8">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors hover:text-blue-500 ${
-                    scrolled ? 'text-slate-600' : 'text-slate-200 hover:text-white'
-                  }`}
-                >
-                  {item.name}
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-slate-100 hidden">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <button onclick="scrollToSection('home')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Home</button>
+                <button onclick="scrollToSection('about')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">About</button>
+                <button onclick="scrollToSection('book')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">The Book</button>
+                <button onclick="scrollToSection('services')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Services</button>
+                <button onclick="scrollToSection('resume')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Resume</button>
+                <button onclick="scrollToSection('contact')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute right-0 top-0 w-1/2 h-full bg-blue-600 skew-x-12 transform translate-x-20"></div>
+            <div class="absolute left-0 bottom-0 w-1/3 h-1/2 bg-slate-700 -skew-x-12 transform -translate-x-10"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-24 flex flex-col justify-center h-full">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Navigating Complexity.<br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
+                    Delivering Insight.
+                </span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-300">
+                Expert guidance for boards and executives, sharpened by decades on Wall Street.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:wfc@billcline.com" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/30 text-center">
+                    Get in Touch
+                </a>
+                <button onclick="scrollToSection('book')" class="px-8 py-4 bg-transparent border-2 border-slate-600 hover:border-white text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    Read the Book
                 </button>
-              ))}
             </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 rounded-md ${scrolled ? 'text-slate-600' : 'text-white'}`}
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
         </div>
+    </section>
 
-        {/* Mobile Nav Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-slate-100">
-            <div className="px-4 pt-2 pb-6 space-y-2">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-        {/* Abstract Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute right-0 top-0 w-1/2 h-full bg-blue-600 skew-x-12 transform translate-x-20"></div>
-          <div className="absolute left-0 bottom-0 w-1/3 h-1/2 bg-slate-700 -skew-x-12 transform -translate-x-10"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-blue-400 font-semibold tracking-wide uppercase text-sm mb-4">Independent Consultant & Author</h2>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-            Navigating Complexity.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
-              Delivering Insight.
-            </span>
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-300">
-            Expert guidance for boards and executives, sharpened by decades on Wall Street.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="mailto:wfc@billcline.com"
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/30 text-center"
-            >
-              Get in Touch
-            </a>
-            <button 
-              onClick={() => scrollToSection('book')}
-              className="px-8 py-4 bg-transparent border-2 border-slate-600 hover:border-white text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2"
-            >
-              <BookOpen size={20} />
-              Read the Book
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* About / Bio Section */}
-      <section id="about" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="relative mb-12 lg:mb-0">
-              <div className="aspect-[4/5] bg-slate-200 rounded-lg overflow-hidden shadow-2xl relative">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 text-white">
-                   <div className="text-center p-8">
-                     <Users size={64} className="mx-auto mb-4 opacity-50" />
-                     <p className="text-sm uppercase tracking-widest">Bill Cline</p>
-                     <p className="text-xs text-slate-400 mt-2">(Replace with Professional Headshot)</p>
-                   </div>
+    <!-- About / Bio Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="relative mb-12 lg:mb-0">
+                    <div class="aspect-[4/5] bg-slate-200 rounded-lg overflow-hidden shadow-2xl relative">
+                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 text-white">
+                            <div class="text-center p-8">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto mb-4 opacity-50">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <p class="text-sm uppercase tracking-widest">Bill Cline</p>
+                                <p class="text-xs text-slate-400 mt-2">(Replace with Professional Headshot)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-50 rounded-full -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-slate-100 rounded-full -z-10"></div>
                 </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-50 rounded-full -z-10"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-slate-100 rounded-full -z-10"></div>
-            </div>
-            
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A Trusted Voice in Finance & Governance</h2>
-              <div className="h-1 w-20 bg-blue-600 mb-8"></div>
-              <div className="prose prose-lg text-slate-600 space-y-6">
-                <p>
-                  With a career spanning over three decades in high-stakes financial environments, Bill Cline brings a rare combination of executive leadership, board governance expertise, and candid industry analysis.
-                </p>
-                <p>
-                  As an independent consultant, Bill advises organizations on strategic maneuvering and crisis management. His tenure on various boards has equipped him with the foresight to navigate regulatory landscapes and shareholder expectations effectively.
-                </p>
-                <p>
-                  Bill is also a recognized media commentator, providing sharp, unvarnished insights into market trends. His book, <em>Tales From Wall Street</em>, has been praised for its authentic portrayal of the industry's inner workings.
-                </p>
-              </div>
-              
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <Briefcase className="text-blue-600 mb-2" size={24} />
-                  <span className="font-semibold text-slate-900">Consultant</span>
+
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A Trusted Voice in Finance & Governance</h2>
+                    <div class="h-1 w-20 bg-blue-600 mb-8"></div>
+                    <div class="prose prose-lg text-slate-600 space-y-6">
+                        <p>
+                            With a career spanning over three decades in high-stakes financial environments, Bill Cline brings a rare combination of executive leadership, board governance expertise, and candid industry analysis.
+                        </p>
+                        <p>
+                            As an independent consultant, Bill advises organizations on strategic maneuvering and crisis management. His tenure on various boards has equipped him with the foresight to navigate regulatory landscapes and shareholder expectations effectively.
+                        </p>
+                        <p>
+                            Bill is also a recognized media commentator, providing sharp, unvarnished insights into market trends. His book, <em>Tales From Wall Street</em>, has been praised for its authentic portrayal of the industry's inner workings.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                            <span class="font-semibold text-slate-900">Consultant</span>
+                        </div>
+                        <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span class="font-semibold text-slate-900">Board Member</span>
+                        </div>
+                        <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                            <span class="font-semibold text-slate-900">Commentator</span>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <Users className="text-blue-600 mb-2" size={24} />
-                  <span className="font-semibold text-slate-900">Board Member</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Section -->
+    <section id="book" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-12 opacity-5">
+            <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex items-center gap-16">
+                <div class="flex-shrink-0 mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-500">
+                    <div class="w-64 md:w-80 h-96 md:h-[30rem] bg-white text-slate-900 shadow-[20px_20px_0px_0px_rgba(255,255,255,0.1)] flex flex-col items-center justify-center p-8 text-center border-l-8 border-slate-300">
+                        <h3 class="text-3xl font-serif font-bold leading-tight mb-2">TALES<br/>FROM<br/>WALL STREET</h3>
+                        <div class="w-16 h-1 bg-red-600 my-4"></div>
+                        <p class="text-sm font-sans uppercase tracking-widest text-slate-500">Bill Cline</p>
+                        <div class="mt-12 text-xs text-slate-400 font-sans italic border-t pt-4 w-full">
+                            A Candid Look Inside<br/>the Financial World
+                        </div>
+                    </div>
                 </div>
-                <div className="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                  <Mic className="text-blue-600 mb-2" size={24} />
-                  <span className="font-semibold text-slate-900">Commentator</span>
+
+                <div class="lg:max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 text-sm font-medium mb-6">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <span>Available Now</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">The Unvarnished Truth of the Financial World</h2>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                        In <em>Tales From Wall Street</em>, Bill Cline pulls back the curtain on the high-octane world of finance. Combining memoir with sharp industry analysis, Cline offers readers a seat at the table where billion-dollar decisions are made, sharing lessons on leadership, ethics, and the cyclical nature of markets.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors text-center">
+                            Buy on Amazon
+                        </button>
+                        <button class="px-8 py-3 bg-transparent border border-slate-600 hover:border-white text-white font-bold rounded-lg transition-colors text-center">
+                            Read Excerpt
+                        </button>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      {/* Book Section */}
-      <section id="book" className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-12 opacity-5">
-           <BookOpen size={400} />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="lg:flex items-center gap-16">
-             <div className="flex-shrink-0 mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-500">
-                <div className="w-64 md:w-80 h-96 md:h-[30rem] bg-white text-slate-900 shadow-[20px_20px_0px_0px_rgba(255,255,255,0.1)] flex flex-col items-center justify-center p-8 text-center border-l-8 border-slate-300">
-                  <h3 className="text-3xl font-serif font-bold leading-tight mb-2">TALES<br/>FROM<br/>WALL STREET</h3>
-                  <div className="w-16 h-1 bg-red-600 my-4"></div>
-                  <p className="text-sm font-sans uppercase tracking-widest text-slate-500">Bill Cline</p>
-                  <div className="mt-12 text-xs text-slate-400 font-sans italic border-t pt-4 w-full">
-                    A Candid Look Inside<br/>the Financial World
-                  </div>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Expertise</h2>
+                <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                    Strategic Advisory & Commentary
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Board Membership</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Serving on corporate and non-profit boards, providing governance oversight and strategic direction.
+                    </p>
                 </div>
-             </div>
-             
-             <div className="lg:max-w-2xl">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 text-sm font-medium mb-6">
-                 <Award size={16} />
-                 <span>Available Now</span>
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold mb-6">The Unvarnished Truth of the Financial World</h2>
-               <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                 In <em>Tales From Wall Street</em>, Bill Cline pulls back the curtain on the high-octane world of finance. Combining memoir with sharp industry analysis, Cline offers readers a seat at the table where billion-dollar decisions are made, sharing lessons on leadership, ethics, and the cyclical nature of markets.
-               </p>
-               
-               <div className="flex flex-col sm:flex-row gap-4">
-                 <button className="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors text-center">
-                   Buy on Amazon
-                 </button>
-                 <button className="px-8 py-3 bg-transparent border border-slate-600 hover:border-white text-white font-bold rounded-lg transition-colors text-center">
-                   Read Excerpt
-                 </button>
-               </div>
-             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Expertise</h2>
-            <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Strategic Advisory & Commentary
-            </h3>
-          </div>
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Strategic Consulting</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Independent consulting for executive teams facing capital market challenges or operational scaling.
+                    </p>
+                </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <Users className="text-blue-600" size={24} />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Board Membership</h4>
-              <p className="text-slate-600 leading-relaxed">
-                Serving on corporate and non-profit boards, providing governance oversight and strategic direction.
-              </p>
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Media Commentary</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Expert contributor for TV, radio, and print media regarding market volatility and outlooks.
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <TrendingUp className="text-blue-600" size={24} />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Strategic Consulting</h4>
-              <p className="text-slate-600 leading-relaxed">
-                Independent consulting for executive teams facing capital market challenges or operational scaling.
-              </p>
+    <!-- Resume Section -->
+    <section id="resume" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Professional Resume</h2>
+            <div class="space-y-8 text-left max-w-2xl mx-auto">
+                <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <h3 class="font-bold text-xl">Independent Consultant</h3>
+                    <p class="text-blue-600 font-medium text-sm">2018 - Present</p>
+                    <p class="text-slate-600 mt-2">Strategic advisor to C-suite executives and boards.</p>
+                </div>
+                <div class="border-l-4 border-slate-300 pl-6 py-2">
+                    <h3 class="font-bold text-xl">Managing Director</h3>
+                    <p class="text-slate-500 font-medium text-sm">2005 - 2018</p>
+                    <p class="text-slate-600 mt-2">Led major divisions at top-tier global investment banks.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <Mic className="text-blue-600" size={24} />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Media Commentary</h4>
-              <p className="text-slate-600 leading-relaxed">
-                Expert contributor for TV, radio, and print media regarding market volatility and outlooks.
-              </p>
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-950 py-12 text-center text-slate-400 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-white text-2xl font-bold mb-4">Connect with Bill</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="mailto:wfc@billcline.com" class="hover:text-white transition-colors flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    wfc@billcline.com
+                </a>
             </div>
-          </div>
+            <p>&copy; <span id="year"></span> Bill Cline. All rights reserved.</p>
         </div>
-      </section>
+    </footer>
 
-      {/* Resume Section */}
-      <section id="resume" className="py-24 bg-white border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Professional Resume</h2>
-          <div className="space-y-8 text-left max-w-2xl mx-auto">
-             <div className="border-l-4 border-blue-600 pl-6 py-2">
-                <h3 className="font-bold text-xl">Independent Consultant</h3>
-                <p className="text-blue-600 font-medium text-sm">2018 - Present</p>
-                <p className="text-slate-600 mt-2">Strategic advisor to C-suite executives and boards.</p>
-             </div>
-             <div className="border-l-4 border-slate-300 pl-6 py-2">
-                <h3 className="font-bold text-xl">Managing Director</h3>
-                <p className="text-slate-500 font-medium text-sm">2005 - 2018</p>
-                <p className="text-slate-600 mt-2">Led major divisions at top-tier global investment banks.</p>
-             </div>
-          </div>
-        </div>
-      </section>
+    <script>
+        let isMenuOpen = false;
 
-      {/* Footer */}
-      <footer id="contact" className="bg-slate-950 py-12 text-center text-slate-400 border-t border-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-white text-2xl font-bold mb-4">Connect with Bill</h2>
-          <div className="flex justify-center gap-6 mb-8">
-            <a href="mailto:wfc@billcline.com" className="hover:text-white transition-colors flex items-center gap-2">
-              <Mail size={20} /> wfc@billcline.com
-            </a>
-          </div>
-          <p>&copy; {new Date().getFullYear()} Bill Cline. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-  );
-};
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                menu.classList.add('hidden');
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            }
+        }
 
-export default App;
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                if (isMenuOpen) toggleMenu();
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrolled = window.scrollY > 20;
+            if (scrolled) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.remove('bg-slate-900/50', 'py-4');
+                const title = navbar.querySelector('h1');
+                title.classList.add('text-slate-900');
+                title.classList.remove('text-white');
+                const buttons = navbar.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.add('text-slate-600');
+                    btn.classList.remove('text-slate-200');
+                });
+                const menuBtn = document.getElementById('menu-button');
+                menuBtn.classList.add('text-slate-600');
+                menuBtn.classList.remove('text-white');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-slate-900/50', 'py-4');
+                const title = navbar.querySelector('h1');
+                title.classList.remove('text-slate-900');
+                title.classList.add('text-white');
+                const buttons = navbar.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('text-slate-600');
+                    btn.classList.add('text-slate-200');
+                });
+                const menuBtn = document.getElementById('menu-button');
+                menuBtn.classList.remove('text-slate-600');
+                menuBtn.classList.add('text-white');
+            }
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

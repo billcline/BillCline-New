@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Cline - New Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-slate-900/50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 cursor-pointer" onclick="scrollToSection('home')">
+                    <h1 class="text-2xl font-bold tracking-tight text-white">
+                        BILL <span class="text-blue-600">CLINE</span>
+                    </h1>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('home')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Home</button>
+                    <button onclick="scrollToSection('about')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">About</button>
+                    <button onclick="scrollToSection('book')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">The Book</button>
+                    <button onclick="scrollToSection('services')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Services</button>
+                    <button onclick="scrollToSection('resume')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Resume</button>
+                    <button onclick="scrollToSection('contact')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Contact</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-button" onclick="toggleMenu()" class="p-2 rounded-md text-white">
+                        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-slate-100 hidden">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <button onclick="scrollToSection('home')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Home</button>
+                <button onclick="scrollToSection('about')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">About</button>
+                <button onclick="scrollToSection('book')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">The Book</button>
+                <button onclick="scrollToSection('services')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Services</button>
+                <button onclick="scrollToSection('resume')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Resume</button>
+                <button onclick="scrollToSection('contact')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Add your content here -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-950 py-12 text-center text-slate-400 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-white text-2xl font-bold mb-4">Connect with Bill</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="mailto:wfc@billcline.com" class="hover:text-white transition-colors flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    wfc@billcline.com
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Bill Cline. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>';
+            } else {
+                menu.classList.add('hidden');
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            }
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                if (isMenuOpen) toggleMenu();
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrolled = window.scrollY > 20;
+            if (scrolled) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.remove('bg-slate-900/50', 'py-4');
+                const title = navbar.querySelector('h1');
+                title.classList.add('text-slate-900');
+                title.classList.remove('text-white');
+                const buttons = navbar.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.add('text-slate-600');
+                    btn.classList.remove('text-slate-200');
+                });
+                const menuBtn = document.getElementById('menu-button');
+                menuBtn.classList.add('text-slate-600');
+                menuBtn.classList.remove('text-white');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-slate-900/50', 'py-4');
+                const title = navbar.querySelector('h1');
+                title.classList.remove('text-slate-900');
+                title.classList.add('text-white');
+                const buttons = navbar.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('text-slate-600');
+                    btn.classList.add('text-slate-200');
+                });
+                const menuBtn = document.getElementById('menu-button');
+                menuBtn.classList.remove('text-slate-600');
+                menuBtn.classList.add('text-white');
+            }
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

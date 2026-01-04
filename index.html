@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
 </head>
+
 <body class="min-h-screen bg-slate-50 font-sans text-slate-800">
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-slate-900/50 py-4">
@@ -20,18 +22,26 @@
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex space-x-8">
-                    <button onclick="scrollToSection('home')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Home</button>
-                    <button onclick="scrollToSection('about')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">About</button>
-                    <button onclick="scrollToSection('book')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">The Book</button>
-                    <button onclick="scrollToSection('services')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Services</button>
-                    <button onclick="scrollToSection('resume')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Resume</button>
-                    <button onclick="scrollToSection('contact')" class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Contact</button>
+                    <button onclick="scrollToSection('home')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Home</button>
+                    <button onclick="scrollToSection('about')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">About</button>
+                    <button onclick="scrollToSection('book')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">The
+                        Book</button>
+                    <button onclick="scrollToSection('services')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Services</button>
+                    <button onclick="scrollToSection('resume')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Resume</button>
+                    <button onclick="scrollToSection('contact')"
+                        class="text-sm font-medium transition-colors hover:text-blue-500 text-slate-200 hover:text-white">Contact</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="menu-button" onclick="toggleMenu()" class="p-2 rounded-md text-white">
-                        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="6" x2="21" y2="6"></line>
                             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -42,14 +52,22 @@
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-slate-100 hidden">
+        <div id="mobile-menu"
+            class="md:hidden bg-white shadow-xl absolute w-full top-full left-0 border-t border-slate-100 hidden">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <button onclick="scrollToSection('home')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Home</button>
-                <button onclick="scrollToSection('about')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">About</button>
-                <button onclick="scrollToSection('book')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">The Book</button>
-                <button onclick="scrollToSection('services')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Services</button>
-                <button onclick="scrollToSection('resume')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Resume</button>
-                <button onclick="scrollToSection('contact')" class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Contact</button>
+                <button onclick="scrollToSection('home')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Home</button>
+                <button onclick="scrollToSection('about')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">About</button>
+                <button onclick="scrollToSection('book')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">The
+                    Book</button>
+                <button onclick="scrollToSection('services')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Services</button>
+                <button onclick="scrollToSection('resume')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Resume</button>
+                <button onclick="scrollToSection('contact')"
+                    class="block w-full text-left px-3 py-3 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-md">Contact</button>
             </div>
         </div>
     </nav>
@@ -62,7 +80,8 @@
             <div class="absolute left-0 bottom-0 w-1/3 h-1/2 bg-slate-700 -skew-x-12 transform -translate-x-10"></div>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-24 flex flex-col justify-center h-full">
+        <div
+            class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-24 flex flex-col justify-center h-full">
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
                 Navigating Complexity.<br />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
@@ -70,13 +89,16 @@
                 </span>
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-300">
-                Expert guidance for senior executives and boards, sharpened by decades on Wall Street driving innovation in products, data, and global services.
+                Expert guidance for senior executives and boards, sharpened by decades on Wall Street driving innovation
+                in products, data, and global services.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:wfc@billcline.com" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/30 text-center">
+                <a href="mailto:wfc@billcline.com"
+                    class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-blue-500/30 text-center">
                     Get in Touch
                 </a>
-                <button onclick="scrollToSection('book')" class="px-8 py-4 bg-transparent border-2 border-slate-600 hover:border-white text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2">
+                <button onclick="scrollToSection('book')"
+                    class="px-8 py-4 bg-transparent border-2 border-slate-600 hover:border-white text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
@@ -93,32 +115,45 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                 <div class="relative mb-12 lg:mb-0">
                     <div class="aspect-[4/5] bg-slate-200 rounded-lg overflow-hidden shadow-2xl relative">
-                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 text-white">
-                            <img src="images/wfc.jpg" alt="Bill Cline Professional Headshot" class="w-full h-full object-cover rounded-lg">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 text-white">
+                            <img src="images/wfc.jpg" alt="Bill Cline Professional Headshot"
+                                class="w-full h-full object-cover rounded-lg">
                         </div>
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-blue-50 rounded-full -z-10"></div>
                     <div class="absolute -top-6 -left-6 w-32 h-32 bg-slate-100 rounded-full -z-10"></div>
                 </div>
 
-                <div> </h2>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A History of Innovation in Trading Systems, Real-time Data, and AI-Enabled Intelligent Automation</h2>
+                <div>
+                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A History of Innovation in Trading
+                        Systems, Real-time Data, and AI-Enabled Intelligent Automation</h2>
                     <div class="h-1 w-20 bg-blue-600 mb-8"></div>
                     <div class="prose prose-lg text-slate-600 space-y-6">
                         <p>
-                            With a career spanning 4 decades in high-stakes financial environments, Bill Cline brings a rare combination of innovation, executive leadership, and candid industry insights. He pioneered many advances in trading and market data distribution systems, global managed services, and AI-enabled intelligent automation.
+                            With a career spanning 4 decades in high-stakes financial environments, Bill Cline brings a
+                            rare combination of innovation, executive leadership, and candid industry insights. He
+                            pioneered many advances in trading and market data distribution systems, global managed
+                            services, and AI-enabled intelligent automation.
                         </p>
                         <p>
-                            As an independent consultant, Bill advises organizations on strategy, operations, project delivery, and innovation investments with a unique blend of IT, trading, and outsourcing expertise.
+                            As an independent consultant, Bill advises organizations on strategy, operations, project
+                            delivery, and innovation investments with a unique blend of IT, trading, and outsourcing
+                            expertise.
                         </p>
                         <p>
-                            Bill is also a recognized media commentator, providing sharp, unvarnished insights into market trends and new technologies. His new book, <em>Tales From Wall Street</em>, has been praised for its authentic portrayal of the digital disruption of Wall Street trading, market data, and exchanges.
+                            Bill is also a recognized media commentator, providing sharp, unvarnished insights into
+                            market trends and new technologies. His new book, <em>Tales From Wall Street</em>, has been
+                            praised for its authentic portrayal of the digital disruption of Wall Street trading, market
+                            data, and exchanges.
                         </p>
                     </div>
 
                     <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-blue-600 mb-2">
                                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                 <line x1="8" y1="21" x2="16" y2="21"></line>
                                 <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -126,7 +161,8 @@
                             <span class="font-semibold text-slate-900">Strategic Consulting</span>
                         </div>
                         <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-blue-600 mb-2">
                                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
                                 <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                                 <line x1="12" y1="19" x2="12" y2="23"></line>
@@ -135,7 +171,8 @@
                             <span class="font-semibold text-slate-900">Media Commentary</span>
                         </div>
                         <div class="flex flex-col items-center p-4 bg-slate-50 rounded-lg border border-slate-100">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600 mb-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-blue-600 mb-2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -161,27 +198,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:flex items-center gap-16">
                 <div class="flex-shrink-0 mb-10 lg:mb-0 transform hover:scale-105 transition-transform duration-500">
-                    <img src="images/cover.jpg" alt="Tales From Wall Street Book Cover" class="w-64 md:w-80 h-96 md:h-[30rem] object-cover shadow-[20px_20px_0px_0px_rgba(255,255,255,0.1)] border-l-8 border-slate-300">
+                    <img src="images/cover.jpg" alt="Tales From Wall Street Book Cover"
+                        class="w-64 md:w-80 h-96 md:h-[30rem] object-cover shadow-[20px_20px_0px_0px_rgba(255,255,255,0.1)] border-l-8 border-slate-300">
                 </div>
 
                 <div class="lg:max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 text-sm font-medium mb-6">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 text-blue-300 text-sm font-medium mb-6">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <circle cx="12" cy="8" r="7"></circle>
                             <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                         </svg>
                         <span>Available Now</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">A Wild Ride Leading Innovation and Digital Disruption of Wall Street, Exchanges, and Global Managed Services</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">A Wild Ride Leading Innovation and Digital
+                        Disruption of Wall Street, Exchanges, and Global Managed Services</h2>
                     <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-                        In <em>Tales From Wall Street</em>, Bill Cline pulls back the curtain on the high-octane world of Wall Street trading and the ecosystem around it. Combining memoir with sharp industry analysis, Cline offers readers an inside look a high-stakes bets on the future of trading systems, data, exchanges, and IT-enabled process automation, sharing lessons on leadership, innovation, and services.
+                        In <em>Tales From Wall Street</em>, Bill Cline pulls back the curtain on the high-octane world
+                        of Wall Street trading and the ecosystem around it. Combining memoir with sharp industry
+                        analysis, Cline offers readers an inside look a high-stakes bets on the future of trading
+                        systems, data, exchanges, and IT-enabled process automation, sharing lessons on leadership,
+                        innovation, and services.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors text-center">
+                        <button
+                            class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-colors text-center">
                             Buy on Amazon
                         </button>
-                        <a href="https://talesfromwallstreet.com/excerpt.html" class="px-8 py-3 bg-transparent border border-slate-600 hover:border-white text-white font-bold rounded-lg transition-colors text-center inline-block">
+                        <a href="https://talesfromwallstreet.com/excerpt.html"
+                            class="px-8 py-3 bg-transparent border border-slate-600 hover:border-white text-white font-bold rounded-lg transition-colors text-center inline-block">
                             Read Excerpt
                         </a>
                     </div>
@@ -201,22 +248,27 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                <div
+                    class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-blue-600">
                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                             <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
                     </div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">Strategic Consulting</h4>
                     <p class="text-slate-600 leading-relaxed">
-                        Independent consulting for executive teams facing capital market challenges or operational scaling.
+                        Independent consulting for executive teams facing capital market challenges or operational
+                        scaling.
                     </p>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                <div
+                    class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-blue-600">
                             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
                             <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                             <line x1="12" y1="19" x2="12" y2="23"></line>
@@ -229,9 +281,11 @@
                     </p>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
+                <div
+                    class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow p-8 border-t-4 border-blue-600">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-blue-600">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -240,7 +294,8 @@
                     </div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">Board Membership</h4>
                     <p class="text-slate-600 leading-relaxed">
-                        Serving on corporate and non-profit boards, providing governance oversight and strategic direction.
+                        Serving on corporate and non-profit boards, providing governance oversight and strategic
+                        direction.
                     </p>
                 </div>
             </div>
@@ -251,13 +306,20 @@
     <section id="resume" class="py-24 bg-white border-t border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Professional Resume</h2>
+            <div class="mb-8 max-w-2xl mx-auto">
+                <img src="images/wfc_current.jpg" alt="Bill Cline - Current" class="w-full rounded-lg shadow-lg">
+            </div>
             <div class="space-y-8 text-left max-w-2xl mx-auto">
                 <p class="text-slate-600 leading-relaxed">
-                    Former professional musician, trader, entrepreneur, and managing partner at global consulting firms Andersen Consulting, Accenture and KPMG, Bill has a 40 year history of product, data, IT, managed services, and intelligent automation / AI innovations. 
+                    Former professional musician, trader, entrepreneur, and managing partner at global consulting firms
+                    Andersen Consulting, Accenture and KPMG, Bill has a 40 year history of product, data, IT, managed
+                    services, and intelligent automation / AI innovations.
                 </p>
-                <img src="https://talesfromwallstreet.com/images/younger-600.webp" alt="Bill Cline - Earlier Years" class="w-full rounded-lg shadow-lg">
+                <img src="https://talesfromwallstreet.com/images/younger-600.webp" alt="Bill Cline - Earlier Years"
+                    class="w-full rounded-lg shadow-lg">
                 <div class="text-center mt-8">
-                    <a href="https://www.linkedin.com/in/bill-cline-4492423/" class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors">
+                    <a href="https://www.linkedin.com/in/bill-cline-4492423/"
+                        class="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors">
                         Connect on LinkedIn
                     </a>
                 </div>
@@ -343,4 +405,5 @@
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>

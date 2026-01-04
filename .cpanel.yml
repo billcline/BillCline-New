@@ -2,3 +2,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/billcline/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -r blank.html $DEPLOYPATH
+    - /bin/cp -r images $DEPLOYPATH
